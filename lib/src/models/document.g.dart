@@ -8,14 +8,14 @@ part of 'document.dart';
 
 Document _$DocumentFromJson(Map<String, dynamic> json) {
   return Document(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    visible: json['visible'] as bool,
+    id: json['id'] as String?,
+    name: json['name'] as String?,
+    visible: json['visible'] as bool?,
     pluginData: json['pluginData'],
     sharedPluginData: json['sharedPluginData'],
-    children: (json['children'] as List)
+    children: (json['children'] as List<dynamic>?)
         ?.map(const NodeJsonConverter().fromJson)
-        ?.toList(),
+        .toList(),
   );
 }
 
@@ -26,5 +26,5 @@ Map<String, dynamic> _$DocumentToJson(Document instance) => <String, dynamic>{
       'pluginData': instance.pluginData,
       'sharedPluginData': instance.sharedPluginData,
       'children':
-          instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
+          instance.children?.map(const NodeJsonConverter().toJson).toList(),
     };

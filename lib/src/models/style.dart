@@ -10,17 +10,17 @@ part 'style.g.dart';
 @JsonSerializable()
 class Style extends Equatable {
   /// The key of the style
-  final String key;
+  final String? key;
 
   /// The name of the style
-  final String name;
+  final String? name;
 
   /// The description of the style
-  final String description;
+  final String? description;
 
   /// The type of style as string enum
   @JsonKey(name: 'style_type')
-  final StyleType type;
+  final StyleType? type;
 
   Style({
     this.key,
@@ -30,7 +30,7 @@ class Style extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         key,
         name,
         description,

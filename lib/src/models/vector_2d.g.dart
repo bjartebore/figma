@@ -8,8 +8,8 @@ part of 'vector_2d.dart';
 
 Vector2D _$Vector2DFromJson(Map<String, dynamic> json) {
   return Vector2D(
-    x: json['x'] as num,
-    y: json['y'] as num,
+    x: json['x'] as num?,
+    y: json['y'] as num?,
   );
 }
 

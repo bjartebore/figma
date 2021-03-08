@@ -7,23 +7,23 @@ part 'user.g.dart';
 @JsonSerializable()
 class User extends Equatable {
   /// Unique stable id of the user
-  final String id;
+  final String? id;
 
   /// Name of the user
-  final String handle;
+  final String? handle;
 
   /// URL link to the user's profile image
   @JsonKey(name: 'img_url')
-  final String imageUrl;
+  final String? imageUrl;
 
   /// Email associated with the user's account.
   /// This will only be present on the /v1/me endpoint
-  final String email;
+  final String? email;
 
   User({this.id, this.handle, this.imageUrl, this.email});
 
   @override
-  List<Object> get props => [id, handle, imageUrl, email];
+  List<Object?> get props => [id, handle, imageUrl, email];
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

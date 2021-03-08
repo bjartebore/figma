@@ -8,8 +8,8 @@ part of 'cursor.dart';
 
 Cursor _$CursorFromJson(Map<String, dynamic> json) {
   return Cursor(
-    before: json['before'] as int,
-    after: json['after'] as int,
+    before: json['before'] as int?,
+    after: json['after'] as int?,
   );
 }
 

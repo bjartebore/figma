@@ -8,16 +8,14 @@ part of 'slice.dart';
 
 Slice _$SliceFromJson(Map<String, dynamic> json) {
   return Slice(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    visible: json['visible'] as bool,
+    id: json['id'] as String?,
+    name: json['name'] as String?,
+    visible: json['visible'] as bool?,
     pluginData: json['pluginData'],
     sharedPluginData: json['sharedPluginData'],
-    exportSettings: (json['exportSettings'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ExportSetting.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    exportSettings: (json['exportSettings'] as List<dynamic>?)
+        ?.map((e) => ExportSetting.fromJson(e as Map<String, dynamic>))
+        .toList(),
     absoluteBoundingBox: json['absoluteBoundingBox'] == null
         ? null
         : SizeRectangle.fromJson(
@@ -25,9 +23,9 @@ Slice _$SliceFromJson(Map<String, dynamic> json) {
     size: json['size'] == null
         ? null
         : Vector2D.fromJson(json['size'] as Map<String, dynamic>),
-    relativeTransform: (json['relativeTransform'] as List)
-        ?.map((e) => (e as List)?.map((e) => e as num)?.toList())
-        ?.toList(),
+    relativeTransform: (json['relativeTransform'] as List<dynamic>?)
+        ?.map((e) => (e as List<dynamic>).map((e) => e as num).toList())
+        .toList(),
   );
 }
 

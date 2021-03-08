@@ -8,10 +8,9 @@ part of 'comments_response.dart';
 
 CommentsResponse _$CommentsResponseFromJson(Map<String, dynamic> json) {
   return CommentsResponse(
-    comments: (json['comments'] as List)
-        ?.map((e) =>
-            e == null ? null : Comment.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    comments: (json['comments'] as List<dynamic>?)
+        ?.map((e) => Comment.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

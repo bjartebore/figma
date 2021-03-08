@@ -8,10 +8,10 @@ part of 'node.dart';
 
 Node _$NodeFromJson(Map<String, dynamic> json) {
   return Node(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    visible: json['visible'] as bool,
-    type: json['type'] as String,
+    id: json['id'] as String?,
+    name: json['name'] as String?,
+    visible: json['visible'] as bool?,
+    type: json['type'] as String?,
     pluginData: json['pluginData'],
     sharedPluginData: json['sharedPluginData'],
   );

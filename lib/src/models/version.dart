@@ -7,20 +7,20 @@ part 'version.g.dart';
 @JsonSerializable()
 class Version extends Equatable {
   /// Unique identifier for version
-  final String id;
+  final String? id;
 
   /// The UTC ISO 8601 time at which the version was created
   @JsonKey(name: 'created_at')
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// The label given to the version in the editor
-  final String label;
+  final String? label;
 
   /// The description of the version as entered in the editor
-  final String description;
+  final String? description;
 
   /// The user that created the version
-  final User user;
+  final User? user;
 
   Version({
     this.id,
@@ -31,7 +31,7 @@ class Version extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         id,
         createdAt,
         label,

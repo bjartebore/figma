@@ -7,15 +7,15 @@ part 'components_meta.g.dart';
 @JsonSerializable()
 class ComponentsMeta extends Equatable {
   /// List of components
-  final List<Component> components;
+  final List<Component>? components;
 
   /// Pagniation cursor
-  final Cursor cursor;
+  final Cursor? cursor;
 
   ComponentsMeta({this.components, this.cursor});
 
   @override
-  List<Object> get props => [components, cursor];
+  List<Object?> get props => [components, cursor];
 
   factory ComponentsMeta.fromJson(Map<String, dynamic> json) =>
       _$ComponentsMetaFromJson(json);

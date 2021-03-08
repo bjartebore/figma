@@ -8,7 +8,7 @@ part of 'color_stop.dart';
 
 ColorStop _$ColorStopFromJson(Map<String, dynamic> json) {
   return ColorStop(
-    position: (json['position'] as num)?.toDouble(),
+    position: (json['position'] as num?)?.toDouble(),
     color: json['color'] == null
         ? null
         : Color.fromJson(json['color'] as Map<String, dynamic>),

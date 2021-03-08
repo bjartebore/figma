@@ -20,24 +20,24 @@ enum EffectType {
 @JsonSerializable()
 class Effect extends Equatable {
   /// Type of effect as a string enum
-  final EffectType type;
+  final EffectType? type;
 
   /// Is the effect active?
-  final bool visible;
+  final bool? visible;
 
   /// Radius of the blur effect (applies to shadows as well)
-  final num radius;
+  final num? radius;
 
   // The following properties are for shadows only:
 
   /// The color of the shadow
-  final Color color;
+  final Color? color;
 
   /// Blend mode of the shadow
-  final BlendMode blendMode;
+  final BlendMode? blendMode;
 
   /// How far the shadow is projected in the x and y directions
-  final Vector2D offset;
+  final Vector2D? offset;
 
   Effect({
     this.type,
@@ -49,7 +49,7 @@ class Effect extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         type,
         visible,
         radius,

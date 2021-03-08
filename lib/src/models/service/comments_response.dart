@@ -7,12 +7,12 @@ part 'comments_response.g.dart';
 @JsonSerializable()
 class CommentsResponse extends Equatable {
   /// List of comments requested
-  final List<Comment> comments;
+  final List<Comment>? comments;
 
   CommentsResponse({this.comments});
 
   @override
-  List<Object> get props => [comments];
+  List<Object?> get props => [comments];
 
   factory CommentsResponse.fromJson(Map<String, dynamic> json) =>
       _$CommentsResponseFromJson(json);

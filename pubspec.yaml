@@ -6,18 +6,19 @@ repository: https://github.com/dnb-asa/figma
 issue_tracker: https://github.com/dnb-asa/figma/issues
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   http2: ^2.0.0
   json_annotation: ^4.0.0
   equatable: ^2.0.0
+  collection: ^1.15.0-nullsafety.4
 
 dev_dependencies:
   pedantic: ^1.11.0
   test: ^1.16.5
   build_runner: ^1.11.5
-  json_serializable: ^3.5.0
+  json_serializable: ^4.0.2
   dotenv: ^3.0.0-nullsafety.0 
 
 dependency_overrides:

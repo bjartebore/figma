@@ -8,10 +8,9 @@ part of 'styles_meta.dart';
 
 StylesMeta _$StylesMetaFromJson(Map<String, dynamic> json) {
   return StylesMeta(
-    styles: (json['styles'] as List)
-        ?.map(
-            (e) => e == null ? null : Style.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    styles: (json['styles'] as List<dynamic>?)
+        ?.map((e) => Style.fromJson(e as Map<String, dynamic>))
+        .toList(),
     cursor: json['cursor'] == null
         ? null
         : Cursor.fromJson(json['cursor'] as Map<String, dynamic>),

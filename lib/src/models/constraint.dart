@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'constraint.g.dart';
 
 /// Type of constraint to apply
@@ -26,15 +25,15 @@ enum ConstraintType {
 @JsonSerializable()
 class Constraint extends Equatable {
   /// Type of constraint to apply
-  final ConstraintType type;
+  final ConstraintType? type;
 
   /// See type property for effect of this field
-  final num value;
+  final num? value;
 
   Constraint({this.type, this.value});
 
   @override
-  List<Object> get props => [type, value];
+  List<Object?> get props => [type, value];
 
   factory Constraint.fromJson(Map<String, dynamic> json) =>
       _$ConstraintFromJson(json);

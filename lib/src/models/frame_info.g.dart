@@ -8,11 +8,11 @@ part of 'frame_info.dart';
 
 FrameInfo _$FrameInfoFromJson(Map<String, dynamic> json) {
   return FrameInfo(
-    nodeId: json['node:_id'] as String,
-    name: json['name'] as String,
-    backgroundColor: json['background_color'] as String,
-    pageId: json['page_id'] as String,
-    pageName: json['page_name'] as String,
+    nodeId: json['node:_id'] as String?,
+    name: json['name'] as String?,
+    backgroundColor: json['background_color'] as String?,
+    pageId: json['page_id'] as String?,
+    pageName: json['page_name'] as String?,
   );
 }
 

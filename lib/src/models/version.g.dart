@@ -8,12 +8,12 @@ part of 'version.dart';
 
 Version _$VersionFromJson(Map<String, dynamic> json) {
   return Version(
-    id: json['id'] as String,
+    id: json['id'] as String?,
     createdAt: json['created_at'] == null
         ? null
         : DateTime.parse(json['created_at'] as String),
-    label: json['label'] as String,
-    description: json['description'] as String,
+    label: json['label'] as String?,
+    description: json['description'] as String?,
     user: json['user'] == null
         ? null
         : User.fromJson(json['user'] as Map<String, dynamic>),

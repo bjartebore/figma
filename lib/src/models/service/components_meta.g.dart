@@ -8,10 +8,9 @@ part of 'components_meta.dart';
 
 ComponentsMeta _$ComponentsMetaFromJson(Map<String, dynamic> json) {
   return ComponentsMeta(
-    components: (json['components'] as List)
-        ?.map((e) =>
-            e == null ? null : Component.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    components: (json['components'] as List<dynamic>?)
+        ?.map((e) => Component.fromJson(e as Map<String, dynamic>))
+        .toList(),
     cursor: json['cursor'] == null
         ? null
         : Cursor.fromJson(json['cursor'] as Map<String, dynamic>),

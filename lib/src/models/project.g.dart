@@ -8,8 +8,8 @@ part of 'project.dart';
 
 Project _$ProjectFromJson(Map<String, dynamic> json) {
   return Project(
-    id: json['id'] as String,
-    name: json['name'] as String,
+    id: json['id'] as String?,
+    name: json['name'] as String?,
   );
 }
 

@@ -8,23 +8,21 @@ part of 'canvas.dart';
 
 Canvas _$CanvasFromJson(Map<String, dynamic> json) {
   return Canvas(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    visible: json['visible'] as bool,
+    id: json['id'] as String?,
+    name: json['name'] as String?,
+    visible: json['visible'] as bool?,
     pluginData: json['pluginData'],
     sharedPluginData: json['sharedPluginData'],
-    children: (json['children'] as List)
+    children: (json['children'] as List<dynamic>?)
         ?.map(const NodeJsonConverter().fromJson)
-        ?.toList(),
+        .toList(),
     backgroundColor: json['backgroundColor'] == null
         ? null
         : Color.fromJson(json['backgroundColor'] as Map<String, dynamic>),
-    prototypeStartNodeID: json['prototypeStartNodeID'] as String,
-    exportSettings: (json['exportSettings'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ExportSetting.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    prototypeStartNodeID: json['prototypeStartNodeID'] as String?,
+    exportSettings: (json['exportSettings'] as List<dynamic>?)
+        ?.map((e) => ExportSetting.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -35,7 +33,7 @@ Map<String, dynamic> _$CanvasToJson(Canvas instance) => <String, dynamic>{
       'pluginData': instance.pluginData,
       'sharedPluginData': instance.sharedPluginData,
       'children':
-          instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
+          instance.children?.map(const NodeJsonConverter().toJson).toList(),
       'backgroundColor': instance.backgroundColor,
       'prototypeStartNodeID': instance.prototypeStartNodeID,
       'exportSettings': instance.exportSettings,

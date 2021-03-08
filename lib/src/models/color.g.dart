@@ -8,10 +8,10 @@ part of 'color.dart';
 
 Color _$ColorFromJson(Map<String, dynamic> json) {
   return Color(
-    r: (json['r'] as num)?.toDouble(),
-    g: (json['g'] as num)?.toDouble(),
-    b: (json['b'] as num)?.toDouble(),
-    a: (json['a'] as num)?.toDouble(),
+    r: (json['r'] as num?)?.toDouble(),
+    g: (json['g'] as num?)?.toDouble(),
+    b: (json['b'] as num?)?.toDouble(),
+    a: (json['a'] as num?)?.toDouble(),
   );
 }
 

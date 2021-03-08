@@ -8,8 +8,8 @@ part of 'styles_response.dart';
 
 StylesResponse _$StylesResponseFromJson(Map<String, dynamic> json) {
   return StylesResponse(
-    status: json['status'] as int,
-    error: json['error'] as bool,
+    status: json['status'] as int?,
+    error: json['error'] as bool?,
     meta: json['meta'] == null
         ? null
         : StylesMeta.fromJson(json['meta'] as Map<String, dynamic>),

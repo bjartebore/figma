@@ -7,15 +7,15 @@ part 'vector_2d.g.dart';
 @JsonSerializable()
 class Vector2D extends Equatable {
   /// X coordinate of the vector
-  final num x;
+  final num? x;
 
   /// Y coordinate of the vector
-  final num y;
+  final num? y;
 
   Vector2D({this.x, this.y});
 
   @override
-  List<Object> get props => [x, y];
+  List<Object?> get props => [x, y];
 
   factory Vector2D.fromJson(Map<String, dynamic> json) =>
       _$Vector2DFromJson(json);

@@ -8,10 +8,10 @@ part of 'size_rectangle.dart';
 
 SizeRectangle _$SizeRectangleFromJson(Map<String, dynamic> json) {
   return SizeRectangle(
-    x: (json['x'] as num)?.toDouble(),
-    y: (json['y'] as num)?.toDouble(),
-    width: (json['width'] as num)?.toDouble(),
-    height: (json['height'] as num)?.toDouble(),
+    x: (json['x'] as num?)?.toDouble(),
+    y: (json['y'] as num?)?.toDouble(),
+    width: (json['width'] as num?)?.toDouble(),
+    height: (json['height'] as num?)?.toDouble(),
   );
 }
 

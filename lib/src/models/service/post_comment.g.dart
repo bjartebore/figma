@@ -8,9 +8,9 @@ part of 'post_comment.dart';
 
 PostComment _$PostCommentFromJson(Map<String, dynamic> json) {
   return PostComment(
-    message: json['message'] as String,
+    message: json['message'] as String?,
     clientMeta: json['client_meta'],
-    commentId: json['comment_id'] as String,
+    commentId: json['comment_id'] as String?,
   );
 }
 

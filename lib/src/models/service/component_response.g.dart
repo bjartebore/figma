@@ -8,8 +8,8 @@ part of 'component_response.dart';
 
 ComponentResponse _$ComponentResponseFromJson(Map<String, dynamic> json) {
   return ComponentResponse(
-    status: json['status'] as int,
-    error: json['error'] as bool,
+    status: json['status'] as int?,
+    error: json['error'] as bool?,
     component: json['meta'] == null
         ? null
         : Component.fromJson(json['meta'] as Map<String, dynamic>),

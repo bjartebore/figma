@@ -7,12 +7,12 @@ void main() {
   load();
 
   group('#realData', () {
-    String testCommentId;
-    String testComponentKey;
-    String testStyleKey;
+    String? testCommentId;
+    String? testComponentKey;
+    String? testStyleKey;
 
     final client = FigmaClient(
-      env['FIGMA_ACCESS_TOKEN'],
+      env['FIGMA_ACCESS_TOKEN']!,
     );
 
     final assetsFile = env['FIGMA_EUFEMIA_IOS_FILE'];
@@ -30,21 +30,21 @@ void main() {
     test(
       'getFile() retrieves file',
       () => client
-          .getFile(assetsFile)
+          .getFile(assetsFile!)
           .then((res) => expect(res.document != null, true)),
     );
 
     test(
       'getFileNodes() retrieves file nodes',
       () => client
-          .getFileNodes(assetsFile, basicQuery)
+          .getFileNodes(assetsFile!, basicQuery)
           .then((res) => expect(res != null, true)),
     );
 
     test(
       'getImages() retrieves images',
       () => client
-          .getImages(assetsFile, basicQuery)
+          .getImages(assetsFile!, basicQuery)
           .then((res) => expect(res.status == null, true)),
     );
 
@@ -58,17 +58,17 @@ void main() {
     test(
       'getComments() retrieves comments',
       () =>
-          client.getComments(testFile).then((res) => expect(res != null, true)),
+          client.getComments(testFile!).then((res) => expect(res != null, true)),
     );
 
     test(
         'postComment() posts comment',
         () => client
-            .postComment(testFile, testComment)
+            .postComment(testFile!, testComment)
             .then((comment) => testCommentId = comment.id));
 
     test('deleteComment() deletes comment',
-        () => client.deleteComment(testFile, testCommentId));
+        () => client.deleteComment(testFile!, testCommentId!));
 
     test(
       'getMe() gets me',
@@ -78,65 +78,65 @@ void main() {
     test(
       'getFileVersions() gets file versions',
       () => client
-          .getFileVersions(assetsFile)
+          .getFileVersions(assetsFile!)
           .then((res) => expect(res.isNotEmpty, true)),
     );
 
     test(
       'getTeamProjects() gets team projects',
       () => client
-          .getTeamProjects(team)
-          .then((res) => expect(res.projects.isNotEmpty, true)),
+          .getTeamProjects(team!)
+          .then((res) => expect(res.projects!.isNotEmpty, true)),
     );
 
     test(
       'getProjectFiles() gets project files',
       () => client
-          .getProjectFiles(project)
-          .then((res) => expect(res.files.isNotEmpty, true)),
+          .getProjectFiles(project!)
+          .then((res) => expect(res.files!.isNotEmpty, true)),
     );
 
     test(
       'getTeamComponents() gets team components',
       () => client
-          .getTeamComponents(team)
+          .getTeamComponents(team!)
           .then((res) => expect(res.meta != null, true)),
     );
 
     test(
       'getFileComponents() gets file components',
-      () => client.getFileComponents(assetsFile).then((res) {
+      () => client.getFileComponents(assetsFile!).then((res) {
         expect(res.meta != null, true);
-        testComponentKey = res.meta.components.first.key;
+        testComponentKey = res.meta!.components!.first.key;
       }),
     );
 
     test(
       'getComponent() gets component',
       () => client
-          .getComponent(testComponentKey)
+          .getComponent(testComponentKey!)
           .then((res) => expect(res.component != null, true)),
     );
 
     test(
       'getTeamStyles() gets team styles',
       () => client
-          .getTeamStyles(team)
+          .getTeamStyles(team!)
           .then((res) => expect(res.meta != null, true)),
     );
 
     test(
       'getFileStyles() gets file styles',
-      () => client.getFileStyles(assetsFile).then((res) {
-        expect(res.meta.styles.isNotEmpty, true);
-        testStyleKey = res.meta.styles.first.key;
+      () => client.getFileStyles(assetsFile!).then((res) {
+        expect(res.meta!.styles!.isNotEmpty, true);
+        testStyleKey = res.meta!.styles!.first.key;
       }),
     );
 
     test(
       'getStyle() gets style',
       () => client
-          .getStyle(testStyleKey)
+          .getStyle(testStyleKey!)
           .then((res) => expect(res.style != null, true)),
     );
   });

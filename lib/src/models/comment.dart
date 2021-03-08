@@ -8,7 +8,7 @@ part 'comment.g.dart';
 @JsonSerializable()
 class Comment extends Equatable {
   /// Unique identifier for comment
-  final String id;
+  final String? id;
 
   /// The position of the comment. Either the absolute coordinates on the
   /// canvas or a relative offset within a frame
@@ -17,27 +17,27 @@ class Comment extends Equatable {
 
   /// The file in which the comment lives
   @JsonKey(name: 'file_key')
-  final String fileKey;
+  final String? fileKey;
 
   /// If present, the id of the comment to which this is the reply
   @JsonKey(name: 'parent_id')
-  final String parentId;
+  final String? parentId;
 
   /// The user who left the comment
-  final User user;
+  final User? user;
 
   /// The UTC ISO 8601 time at which the comment was left
   @JsonKey(name: 'created_at')
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// The UTC ISO 8601 time at which the comment was resolved
   @JsonKey(name: 'resolved_at')
-  final DateTime resolvedAt;
+  final DateTime? resolvedAt;
 
   /// Only set for top level comments.
   /// The number displayed with the comment in the UI
   @JsonKey(name: 'order_id')
-  final String orderId;
+  final String? orderId;
 
   Comment({
     this.id,
@@ -51,7 +51,7 @@ class Comment extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         id,
         clientMeta,
         fileKey,

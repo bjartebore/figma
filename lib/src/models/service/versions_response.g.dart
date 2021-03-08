@@ -8,10 +8,9 @@ part of 'versions_response.dart';
 
 VersionsResponse _$VersionsResponseFromJson(Map<String, dynamic> json) {
   return VersionsResponse(
-    versions: (json['versions'] as List)
-        ?.map((e) =>
-            e == null ? null : Version.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    versions: (json['versions'] as List<dynamic>?)
+        ?.map((e) => Version.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

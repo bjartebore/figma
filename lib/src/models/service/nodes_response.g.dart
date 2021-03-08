@@ -8,16 +8,15 @@ part of 'nodes_response.dart';
 
 NodesResponse _$NodesResponseFromJson(Map<String, dynamic> json) {
   return NodesResponse(
-    name: json['name'] as String,
-    role: json['role'] as String,
+    name: json['name'] as String?,
+    role: json['role'] as String?,
     lastModified: json['lastModified'] == null
         ? null
         : DateTime.parse(json['lastModified'] as String),
-    thumbnailUrl: json['thumbnailUrl'] as String,
-    err: json['err'] as String,
-    nodes: (json['nodes'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(k,
-          e == null ? null : FileResponse.fromJson(e as Map<String, dynamic>)),
+    thumbnailUrl: json['thumbnailUrl'] as String?,
+    err: json['err'] as String?,
+    nodes: (json['nodes'] as Map<String, dynamic>?)?.map(
+      (k, e) => MapEntry(k, FileResponse.fromJson(e as Map<String, dynamic>)),
     ),
   );
 }

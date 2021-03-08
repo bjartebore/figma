@@ -8,11 +8,10 @@ part of 'team_projects_response.dart';
 
 TeamProjectsResponse _$TeamProjectsResponseFromJson(Map<String, dynamic> json) {
   return TeamProjectsResponse(
-    name: json['name'] as String,
-    projects: (json['projects'] as List)
-        ?.map((e) =>
-            e == null ? null : Project.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    name: json['name'] as String?,
+    projects: (json['projects'] as List<dynamic>?)
+        ?.map((e) => Project.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

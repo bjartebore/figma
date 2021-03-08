@@ -6,16 +6,16 @@ part 'node.g.dart';
 @JsonSerializable()
 class Node extends Equatable {
   /// A string uniquely identifying this node within the document.
-  final String id;
+  final String? id;
 
   /// The name given to the node by the user in the tool.
-  final String name;
+  final String? name;
 
   /// Whether or not the node is visible on the canvas.
-  final bool visible;
+  final bool? visible;
 
   /// The type of the node
-  final String type;
+  final String? type;
 
   /// Data written by plugins that is visible only to the plugin that wrote
   /// it. Requires the `pluginData` to include the ID of the plugin.
@@ -35,7 +35,7 @@ class Node extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         id,
         name,
         visible,

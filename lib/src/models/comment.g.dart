@@ -8,10 +8,10 @@ part of 'comment.dart';
 
 Comment _$CommentFromJson(Map<String, dynamic> json) {
   return Comment(
-    id: json['id'] as String,
+    id: json['id'] as String?,
     clientMeta: json['client_meta'],
-    fileKey: json['file_key'] as String,
-    parentId: json['parent_id'] as String,
+    fileKey: json['file_key'] as String?,
+    parentId: json['parent_id'] as String?,
     user: json['user'] == null
         ? null
         : User.fromJson(json['user'] as Map<String, dynamic>),
@@ -21,7 +21,7 @@ Comment _$CommentFromJson(Map<String, dynamic> json) {
     resolvedAt: json['resolved_at'] == null
         ? null
         : DateTime.parse(json['resolved_at'] as String),
-    orderId: json['order_id'] as String,
+    orderId: json['order_id'] as String?,
   );
 }
 

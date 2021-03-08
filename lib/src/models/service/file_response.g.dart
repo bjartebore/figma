@@ -8,24 +8,22 @@ part of 'file_response.dart';
 
 FileResponse _$FileResponseFromJson(Map<String, dynamic> json) {
   return FileResponse(
-    name: json['name'] as String,
-    role: json['role'] as String,
+    name: json['name'] as String?,
+    role: json['role'] as String?,
     lastModified: json['lastModified'] == null
         ? null
         : DateTime.parse(json['lastModified'] as String),
-    thumbnailUrl: json['thumbnailUrl'] as String,
-    version: json['version'] as String,
+    thumbnailUrl: json['thumbnailUrl'] as String?,
+    version: json['version'] as String?,
     document: json['document'] == null
         ? null
         : Document.fromJson(json['document'] as Map<String, dynamic>),
-    components: (json['components'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k, e == null ? null : Component.fromJson(e as Map<String, dynamic>)),
+    components: (json['components'] as Map<String, dynamic>?)?.map(
+      (k, e) => MapEntry(k, Component.fromJson(e as Map<String, dynamic>)),
     ),
-    schemaVersion: json['schemaVersion'] as int,
-    styles: (json['styles'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k, e == null ? null : Style.fromJson(e as Map<String, dynamic>)),
+    schemaVersion: json['schemaVersion'] as int?,
+    styles: (json['styles'] as Map<String, dynamic>?)?.map(
+      (k, e) => MapEntry(k, Style.fromJson(e as Map<String, dynamic>)),
     ),
   );
 }
