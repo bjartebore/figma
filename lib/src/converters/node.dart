@@ -8,7 +8,7 @@ class NodeJsonConverter implements JsonConverter<Node, Object> {
 
   /// Parses a JSON object into a [Node] object
   @override
-  Node fromJson(Object json) {
+  Node/*?*/ fromJson(Object/*?*/ json) {
     if (json == null) {
       return null;
     }
@@ -53,7 +53,7 @@ class NodeJsonConverter implements JsonConverter<Node, Object> {
 
   /// Parses a [Node] object into a JSON object
   @override
-  Object toJson(Node object) {
+  Object/*?*/ toJson(Node/*?*/ object) {
     if (object == null) {
       return null;
     }
